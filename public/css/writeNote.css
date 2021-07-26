@@ -1,0 +1,7 @@
+.hidden {
+    display: none;
+}
+
+#welcomeText {
+    font-size: 30px;
+}

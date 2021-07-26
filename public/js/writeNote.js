@@ -6,6 +6,9 @@ window.onload = () => {
             // this code runs if user is logged in
             console.log("logged in as", user.displayName);
             googleUser = user;
+            setTimeout(() => {
+                
+            }, 3000)
         }
         else {
             // this code runs if user is NOT logged in
@@ -22,7 +25,8 @@ window.onload = () => {
         // write these values to the database
         firebase.database().ref(`/users/${googleUser.uid}`).push({
             title: noteTitle,
-            text: noteText
+            text: noteText,
+            created: firebase.database.ServerValue.TIMESTAMP
         }).then(() => {
             console.log("database write successful");
             document.getElementById('noteTitle').value = "";
